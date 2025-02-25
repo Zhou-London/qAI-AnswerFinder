@@ -2,6 +2,7 @@
 Prompt for OpenAI API
 """
 
+
 class Prompt:
 
     def __init__(self):
@@ -11,5 +12,6 @@ class Prompt:
         self.prompt = "Hello"
 
         self.prompt_for_check = "Hello"
+
 
 prompt = Prompt()

@@ -5,7 +5,8 @@ Check OpenAI API health
 
 from fastapi import APIRouter
 
-path = '/processFile'
+path = "/processFile"
+
 
 class router:
 
@@ -18,5 +19,6 @@ class router:
         @self.router.get(path)
         async def process_route():
             return {"path": path}
-        
+
+
 processFile_router = router().router

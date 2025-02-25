@@ -9,54 +9,58 @@ from dotenv import load_dotenv
 from services.prompts import prompt
 import os
 
+
 class Agent:
     def __init__(self):
 
-        #Get key
+        # Get key
         load_dotenv()
         openai_key = os.getenv("SECRET_KEY")
+
         if not openai_key:
             print("Please enter API KEY in .env file.")
-
-        #Client
+        # Client
         self.client = OpenAI(api_key=openai_key)
 
-    #Check if it is available
+    # Check if it is available
     def check_status(self):
-        #Get response
+        # Get response
         response = self.client.chat.completions.create(
             model="gpt-4o",
             messages=[
                 {
-                    #Pre-prompt
+                    # Pre-prompt
                     "role": "developer",
-                    "content": prompt.pre_prompt
+                    "content": prompt.pre_prompt,
                 },
                 {
-                    #Prompt
+                    # Prompt
                     "role": "user",
-                    "content": prompt.prompt_for_check
-                }
+                    "content": prompt.prompt_for_check,
+                },
             ],
-            max_tokens=10
+            max_tokens=10,
         )
-        
+
+        # Available
         if response.choices and response.choices[0].message.content:
             return {
                 "message": "Available",
                 "status": "success",
-                "response": response.choices[0].message.content
+                "response": response.choices[0].message.content,
             }
-        
+
+        # Not Available
         else:
             return {
                 "message": "OpenAI not working",
                 "status": "error",
-                "response": "No response"
+                "response": "No response",
             }
-        
-    #Analyze a text
-    def process_text(self,text):
+
+    # Analyze a text
+    def process_text(self, text):
         pass
+
 
 openai_service = Agent()

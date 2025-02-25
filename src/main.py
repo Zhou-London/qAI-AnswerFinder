@@ -4,21 +4,21 @@ Application
 
 from fastapi import FastAPI
 
-#Function for middleware
+# Function for middleware
 import middleware
 import middleware.logger
 
-#Function for router
+# Function for router
 from routes.index import index_router
 from routes.process_file import processFile_router
 
-#Init the server
+# Init the server
 app = FastAPI()
 
 """
 Register the middleware
 """
-#app.middleware("http")(check_auth_header)
+# app.middleware("http")(check_auth_header)
 app.middleware("http")(middleware.logger.log_request)
 
 """
