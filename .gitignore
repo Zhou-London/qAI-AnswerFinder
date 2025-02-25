@@ -1,0 +1,21 @@
+# Python 文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# 环境变量
+.env
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.swp
