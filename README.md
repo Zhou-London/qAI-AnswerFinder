@@ -21,6 +21,8 @@ First install the dependencies in **requirements.txt**.
 - Flutter with Dart
 - openai (Python) 1.64.0
 - Manticore Search 7.0.0
+- YOLO
+- PyTorch
 
 ## File System
 
@@ -91,6 +93,10 @@ qAI/
 Use the following command:
 
     mysql -h0 -P9306
+
+Create Table sample code:
+
+    create table products(title text, price float) morphology='stem_en';
 
 Search data sample code:
 

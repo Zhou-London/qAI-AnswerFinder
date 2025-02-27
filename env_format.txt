@@ -1,0 +1,14 @@
+#Your OpenAI Key
+SECRET_KEY=
+
+#Authentication Key(Authentication is not yet implemented)
+AUTH_KEY=
+
+#Your Manticore search host
+MANTICORE_HOST=
+
+#Your YOLO model path
+YOLO_PATH=
+
+#Path to train your YOLO model
+YOLO_OUT=

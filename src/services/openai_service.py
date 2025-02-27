@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 from services.prompts import prompt
 import os
 
+MODEL = "gpt-4o"
+
 
 class Agent:
     def __init__(self):
@@ -21,12 +23,13 @@ class Agent:
             print("Please enter API KEY in .env file.")
         # Client
         self.client = OpenAI(api_key=openai_key)
+        self.model = MODEL
 
     # Check if it is available
     def check_status(self):
         # Get response
         response = self.client.chat.completions.create(
-            model="gpt-4o",
+            model=self.model,
             messages=[
                 {
                     # Pre-prompt
@@ -44,19 +47,11 @@ class Agent:
 
         # Available
         if response.choices and response.choices[0].message.content:
-            return {
-                "message": "Available",
-                "status": "success",
-                "response": response.choices[0].message.content,
-            }
+            return True
 
         # Not Available
         else:
-            return {
-                "message": "OpenAI not working",
-                "status": "error",
-                "response": "No response",
-            }
+            return False
 
     # Analyze a text
     def process_text(self, text):

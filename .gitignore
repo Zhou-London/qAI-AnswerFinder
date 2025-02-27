@@ -18,3 +18,6 @@ build/
 
 *.tmp
 *.swp
+
+#YOLO model
+.pt
