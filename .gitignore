@@ -20,4 +20,4 @@ build/
 *.swp
 
 #YOLO model
-.pt
+*.pt

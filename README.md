@@ -28,65 +28,61 @@ First install the dependencies in **requirements.txt**.
 
 qAI/
 
-├── /src # Source code
+-   src/
+    -   configure/
+        -   configuration of external things
+    -   middleware/
+        -   implementation of middleware
+    -   models/
+        -   Response models of FastAPI
+    -   routes/
+        -   implementation of routes
+    -   sample/
+        -   test data for YOLO
+    -   servies/
+        -   business logic
+    -   main.py
+    -   test.py
+-   static/
+    -   flutter files
 
-│ ├── /config # Congigure File
+env_format.txt
 
-│ │ └── database.py # DataBase connection
+requirements.txt
 
-│ ├── /middleware # Middleware
+README.md
 
-│ │ ├── auth.py # Authentication middleware
+## Set up on your device
 
-│ │ └── logger.py # Logger middleware
+Create an "**.env**" in the root, following the **env_format.txt**.
 
-│ ├── /models # Structure of model
+    touch .env
 
-│ │ └── response.py # Structure of API response
+Pip install the requirements.txt and brew install manticore search.
 
-│ ├── /routes # Routes
+    brew install manticoresearch
 
-│ │ ├── index.py # Index router
+    brew services start manticoresearch
 
-│ │ └── process.py # Process File router
+Get your manticore search host and fill it in your **.env**
 
-│ ├── /utils # Utilities
+    MANTICORE_HOST=...
 
-│ │ └── None yet
+Next, go to openai platform, get your secret key and fill it into **.env**
 
-│ └── main.py # FastAPI Application
+    SECRET_KEY=...
 
-├── /static # Frontend
+Then, since you have all the dependencies of YOLO, train your own YOLO, at configure/yolo_train.py. Run this file from root directory after modifying the output path in the .**env** to be the absolute path of "src/configure/yolo_output"
 
-│ ├── /css
+    YOLO_OUT=...
 
-│ │ └── style.css
+Finally and ideally, you can set your YOLO_PATH as the following. If this doesn't work, figure it out on your own where your model is.
 
-│ ├── /js
+    YOLO_PATH=src/configure/yolo_output/qAI/weights/best.pt
 
-│ │ └── app.js
+To check if everything goes well, run the server, go to "/" page and you shall see a doctor.
 
-│ └── /images # Image
 
-│ └── logo.png
-
-├── /tests # Testing
-
-│ ├── /unit
-
-│ │ └── test_routes.py
-
-│ └── /integration
-
-│ └── test_api.py
-
-├── .env # Environment file
-
-├── .gitignore # Ignored by Git
-
-├── requirements.txt # Python Dependencies
-
-└── README.md
 
 ## Connect to manticore
 
