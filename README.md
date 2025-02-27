@@ -54,9 +54,11 @@ README.md
 
 ## Set up on your device
 
-Create an "**.env**" in the root, following the **env_format.txt**.
+Create an "**.env**" in the root, following the **env_format.txt**. And then create a "**log.log**" file in src/
 
     touch .env
+
+    touch log.log
 
 Pip install the requirements.txt and brew install manticore search.
 
